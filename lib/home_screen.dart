@@ -85,10 +85,9 @@ class HomeScreen extends StatelessWidget {
             if (index == 0) {
               // Visible background for padding
               return Container(
-                color:
-                    theme.brightness == Brightness.dark
-                        ? const Color(0xFF2C2C2C)
-                        : const Color(0xFFFBE9E7), // light peach background
+                color: theme.brightness == Brightness.dark
+                    ? const Color(0xFF2C2C2C)
+                    : const Color(0xFFFBE9E7), // light peach background
                 padding: const EdgeInsets.all(16.0),
                 child: GridView.count(
                   crossAxisCount: 2,
@@ -218,11 +217,8 @@ class HomeScreen extends StatelessWidget {
                                             Text(
                                               pet['name']!,
                                               style: TextStyle(
-                                                color:
-                                                    theme
-                                                        .textTheme
-                                                        .bodyLarge
-                                                        ?.color,
+                                                color: theme
+                                                    .textTheme.bodyLarge?.color,
                                               ),
                                             ),
                                           ],

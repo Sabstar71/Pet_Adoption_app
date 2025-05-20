@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'theme_provider.dart'; // import theme provider
@@ -62,7 +64,9 @@ class ProfileScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.logout, color: Colors.red),
             title: const Text("Logout", style: TextStyle(color: Colors.red)),
-            onTap: () {}, // implement later
+            onTap: () {
+              FirebaseAuth.instance.signOut();
+            }, // implement later
           ),
         ],
       ),

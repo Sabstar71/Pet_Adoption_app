@@ -1,9 +1,6 @@
 name: PawPalApp
 description: "A new Flutter project."
-# The following line prevents the package from being accidentally published to
-# pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -15,10 +12,14 @@ dependencies:
   flutter_card_swiper: ^7.0.2
   font_awesome_flutter: ^10.7.0
   provider: ^6.1.1
-  firebase_core: ^2.25.3
-  firebase_auth: ^4.17.4
-  cloud_firestore: ^4.15.4
+  cloud_firestore: ^5.6.7
   cupertino_icons: ^1.0.8
+  firebase_auth: ^5.5.3
+  firebase_core: ^3.13.0
+  http: ^0.13.6
+  image_picker: ^1.1.2
+  firebase_storage: ^12.4.5
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +27,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/pet.png
+    - assets/dog.png
+    - assets/cat.png
+    - assets/birds.png
+    - assets/fish.png
+    - assets/Wel.png
+    - assets/background.png
