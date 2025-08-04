@@ -6,7 +6,6 @@ import "package:PawPalApp/Chat/usertile.dart";
 
 import 'home_screen.dart';
 import 'adoption_form_screen.dart';
-
 import 'profile_screen.dart';
 
 class PawPalAppWidget extends StatelessWidget {
@@ -20,25 +19,167 @@ class PawPalAppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PawPal',
       themeMode: themeProvider.themeMode,
+      // Light theme definition
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.orange,
-        scaffoldBackgroundColor: const Color(0xFFFDF4FF),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.orange,
-          foregroundColor: Colors.white,
+        primarySwatch: MaterialColor(ThemeProvider.primaryAmber.value, <int, Color>{
+          50: ThemeProvider.primaryAmber.withOpacity(0.1),
+          100: ThemeProvider.primaryAmber.withOpacity(0.2),
+          200: ThemeProvider.primaryAmber.withOpacity(0.3),
+          300: ThemeProvider.primaryAmber.withOpacity(0.4),
+          400: ThemeProvider.primaryAmber.withOpacity(0.5),
+          500: ThemeProvider.primaryAmber,
+          600: ThemeProvider.primaryAmber.withOpacity(0.7),
+          700: ThemeProvider.primaryAmber.withOpacity(0.8),
+          800: ThemeProvider.primaryAmber.withOpacity(0.9),
+          900: ThemeProvider.primaryAmber,
+        }),
+        scaffoldBackgroundColor: ThemeProvider.lightBackground,
+        appBarTheme: AppBarTheme(
+          backgroundColor: ThemeProvider.primaryAmber,
+          foregroundColor: ThemeProvider.lightTextColor,
+          elevation: 2,
+          centerTitle: true,
+          titleTextStyle: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.5,
+          ),
         ),
-        cardColor: Colors.white,
+        cardColor: ThemeProvider.lightCardColor,
+        textTheme: TextTheme(
+          headlineLarge: ThemeProvider.headingStyle,
+          headlineMedium: ThemeProvider.subheadingStyle,
+          bodyLarge: ThemeProvider.bodyStyle,
+          bodyMedium: ThemeProvider.smallStyle,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: ThemeProvider.cardColor,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ThemeProvider.primaryAmber, width: 2),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ThemeProvider.disabledColor),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ThemeProvider.errorColor.withOpacity(0.7)),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: ThemeProvider.primaryAmber,
+            foregroundColor: ThemeProvider.lightTextColor,
+            elevation: 2,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            textStyle: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: ThemeProvider.accentColor,
+            textStyle: const TextStyle(fontWeight: FontWeight.w500),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: ThemeProvider.primaryAmber,
+            side: BorderSide(color: ThemeProvider.primaryAmber),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        colorScheme: ColorScheme.light(
+          primary: ThemeProvider.primaryAmber,
+          secondary: ThemeProvider.primaryOrange,
+          onPrimary: ThemeProvider.lightTextColor,
+          onSecondary: ThemeProvider.lightTextColor,
+          surface: ThemeProvider.lightCardColor,
+          onSurface: ThemeProvider.lightTextColor,
+        ),
       ),
+      // Dark theme definition
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF1E1E1E),
-        primarySwatch: Colors.orange,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.orange,
-          foregroundColor: Colors.white,
+        scaffoldBackgroundColor: ThemeProvider.darkBackground,
+        appBarTheme: AppBarTheme(
+          backgroundColor: ThemeProvider.primaryAmber.withOpacity(0.8),
+          foregroundColor: ThemeProvider.lightTextColor,
+          elevation: 0,
+          centerTitle: true,
+          titleTextStyle: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.5,
+          ),
         ),
-        cardColor: const Color(0xFF2C2C2C),
+        cardColor: ThemeProvider.darkCardColor,
+        textTheme: TextTheme(
+          headlineLarge: ThemeProvider.headingStyle,
+          headlineMedium: ThemeProvider.subheadingStyle,
+          bodyLarge: ThemeProvider.bodyStyle,
+          bodyMedium: ThemeProvider.smallStyle,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: ThemeProvider.darkCardColor,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ThemeProvider.primaryAmber, width: 2),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ThemeProvider.disabledColor),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ThemeProvider.errorColor),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: ThemeProvider.primaryAmber,
+            foregroundColor: ThemeProvider.lightTextColor,
+            elevation: 2,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            textStyle: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: ThemeProvider.primaryAmber,
+            textStyle: const TextStyle(fontWeight: FontWeight.w500),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: ThemeProvider.primaryAmber,
+            side: BorderSide(color: ThemeProvider.primaryAmber),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        colorScheme: ColorScheme.dark(
+          primary: ThemeProvider.primaryAmber,
+          secondary: ThemeProvider.primaryOrange,
+          onPrimary: ThemeProvider.lightTextColor,
+          onSecondary: ThemeProvider.lightTextColor,
+          surface: ThemeProvider.darkCardColor,
+          onSurface: ThemeProvider.darkTextColor,
+        ),
       ),
       home: const MainPage(),
     );
@@ -81,11 +222,14 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.black54,
-        backgroundColor: Colors.orange,
+        selectedItemColor: ThemeProvider.lightTextColor,
+        unselectedItemColor: ThemeProvider.lightTextColor.withOpacity(0.7),
+        backgroundColor: ThemeProvider.primaryAmber,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
+        elevation: 8,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
       ),
     );
   }
